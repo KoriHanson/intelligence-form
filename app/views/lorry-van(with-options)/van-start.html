@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Guidance</span>
+      <h1 class="govuk-heading-xl">
+        Report a van or Light Goods Vehicle driver or business
+      </h1>
+
+      <p class="govuk-body-l">How to report a driver or their business to the Driver and Vehicle Standards Agency (DVSA) if you think they're breaking safety rules.</p>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-l">What you can report to DVSA</h2>
+      <p>You can report a van or Light Goods Vehicle driver or the business running the vehicles (a ‘vehicle operator’) to DVSA if you think they’re breaking safety rules or conditions of their driving or operator licence.</p>
+      
+      <p>This includes things like:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>breaking drivers’ hours rules</li>
+        <li>overloading vehicles</li>
+        <li>using vehicles that are not safe to drive (unroadworthy)</li>
+        <li>using emission cheat devices</li>
+        <li>carrying dangerous or hazardous goods without permission</li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Reporting something anonymously</h3>
+      <p>If you report something anonymously:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you’ll never be asked for your name or to provide contact details</li>
+        <li>your call will not be traced</li>
+        <li>you will not have to make a statement or be called as a witness</li>
+        <li>you will not have to appear in court</li>
+      </ul>
+      <p>Depending on what you’re reporting, it might be possible for the MOT tester or garage to work out that you reported it - even if you report it anonymously.</p>
+     
+      <h3 class="govuk-heading-s">If you do give your contact details</h3>
+      <p>You can remain anonymous. However, if you give DVSA your contact details you might:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be contacted for more information</li>
+        <li>be asked to provide a statement</li>
+        <li>have to act as a witness and appear in court</li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Report online</h3>
+      <p>Report the driver or business using the online form.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "../report-category",
+        isStartButton: true
+      }) }}
+
+      <h3 class="govuk-heading-s">Contact DVSA</h3>
+      <p>Alternatively, contact DVSA to make your report.</p>
+      <p>DVSA Intelligence Unit</br>
+        <a href="#" class="govuk-link">enquiries@dvsa.gov.uk</a><br>
+        Telephone: 0800 030 4103</br>
+        Monday to Friday, 7:30am to 6pm</br>
+        <a href="#" class="govuk-link">Find out about call charges</a></p>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What are the MOT test details
+      </h1>
+
+      <form class="form" action="why-contacting-us" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Vehicle registration (if known)"
+          },
+          hint: {
+            text: "For example, CU57ABC or ABC1234"
+          },
+          classes: "govuk-input--width-10",
+          id: "MOT-vehicle-registration",
+          name: "MOTVehicleRegistration",
+          value: data['MOTVehicleRegistration']
+        }) }}
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "MOT-vehicle-make",
+          name: "MOTVehicleMake",
+          value: data['MOTVehicleMake'],
+          label: {
+           text: "Vehicle make (if known)"
+          },
+          items: [
+           {
+             value: "selectMake",
+             text: "Select a make",
+             selected: true
+           },
+           {
+           value: "astonMartin",
+           text: "Aston Martin"
+           },
+           {
+            value: "audi",
+           text: "Audi"
+           },
+           {
+           value: "bentley",
+           text: "Bentley"
+          },
+          {
+            value: "citroen",
+            text: "Citroen"
+           }
+          ]
+        }) }}
+        {{ govukSelect({
+          id: "MOT-vehicle-model",
+          name: "MOTVehicleModel",
+          value: data['MOTVehicleModel'],
+          label: {
+           text: "Vehicle model (if known)"
+          },
+          items: [
+           {
+             value: "selectModel",
+             text: "Select a model",
+             selected: true
+           },
+           {
+           value: "100",
+           text: "100"
+           },
+           {
+            value: "200",
+           text: "200"
+           },
+           {
+           value: "60",
+           text: "60"
+          },
+          {
+            value: "70",
+            text: "70"
+           }
+          ]
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Vehicle colour (if known)"
+          },
+          classes: "govuk-input--width-20",
+          id: "MOT-vehicle-colour",
+          name: "MOTVehicleColour",
+          value: data['MOTVehicleColour']
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "MOT test number (if known)"
+          },
+          hint: {
+            text: "12-digit number"
+          },
+          classes: "govuk-input--width-20",
+          id: "test-number",
+          name: "testNumber",
+          value: data['testNumber']
+        }) }}
+          
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+        {{ govukDetails({
+          summaryText: "Where can I find the MOT test number?",
+          text: "The MOT test number can be found on the test certificate or on MOT history of the vehicle."
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Vehicle testing organisation number (if known)"
+          },
+          hint: {
+            text: "Found on MOT certificate"
+          },
+          classes: "govuk-input--width-20",
+          id: "testing-organisation-number",
+          name: "testingOrganisationNumber",
+          value: data['testingOrganisationNumber']
+        }) }}
+        
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

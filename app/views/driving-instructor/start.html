@@ -1,0 +1,116 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Guidance</span>
+      <h1 class="govuk-heading-xl">
+        Report an illegal driving instructor
+      </h1>
+
+      <p>It’s illegal for someone to charge for driving lessons if they are not qualified and registered - you can report them to the Driver and Vehicle Standards Agency (DVSA).</p>
+      
+      <p>The only people who can charge a fee to give driving lessons are:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>approved driving instructors - they must display a green badge in their windscreen</li>
+        <li>trainee driving instructors with a licence - they must display a pink badge in their windscreen</li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Reporting something anonymously</h3>
+      <p>If you report something anonymously:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you’ll never be asked for your name or to provide contact details</li>
+        <li>your call will not be traced</li>
+        <li>you will not have to make a statement or be called as a witness</li>
+        <li>you will not have to appear in court</li>
+      </ul>
+      <p>Depending on what you’re reporting, it might be possible for the illegal driving instructor to work out that you reported it - even if you report it anonymously.</p>
+     
+      <h3 class="govuk-heading-s">If you do give your contact details</h3>
+      <p>You can remain anonymous. However, if you give DVSA your contact details you might:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be contacted for more information</li>
+        <li>be asked to provide a statement</li>
+        <li>have to act as a witness and appear in court</li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Report online</h3>
+      <p>Report an illegal driving instructor using the online form.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "driving-instructor-details",
+        isStartButton: true
+      }) }}
+
+      <h3 class="govuk-heading-s">Contact DVSA</h3>
+      <p>Alternatively, email or call the DVSA to report an illegal driving instructor.</p>
+      <p>DVSA Intelligence Unit</br>
+        <a href="#" class="govuk-link">enquiries@dvsa.gov.uk</a><br>
+        Telephone: 0800 030 4103</br>
+        Monday to Friday, 7:30am to 6pm</br>
+        <a href="#" class="govuk-link">Find out about call charges</a></p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        How were payments made?
+      </h1>
+
+      <form class="form" action="why-contacting-us" method="post">
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+
+        {% set cardHtml %}
+        <p class="govuk-caption-m">Provide the details of the card the payment(s) were made to.</p>
+        {{ govukInput({
+          id: "name",
+          name: "name",
+          type: "name",
+          autocomplete: "name",
+          spellcheck: false,
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Name on account"
+          }
+        }) }}
+        {{ govukInput({
+          id: "sort-code",
+          name: "sortCode",
+          type: "sortCode",
+          autocomplete: "sortCode",
+          spellcheck: false,
+          classes: "govuk-input--width-10",
+          label: {
+            text: "Sort code"
+          },
+          hint: {
+            text: "Must be 6 digits long"
+          }
+        }) }}
+        {{ govukInput({
+          id: "account-number",
+          name: "accountNumber",
+          type: "accountNumber",
+          autocomplete: "accountNumber",
+          spellcheck: false,
+          classes: "govuk-input--width-10",
+          label: {
+            text: "Account number"
+          },
+          hint: {
+            text: "Must be between 6 and 8 digits long"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukCheckboxes({
+          name: "payment",
+          fieldset: {
+            legend: {
+              text: "Payment type",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "card",
+              text: "Card",
+              conditional: {
+                html: cardHtml
+              }
+            },
+            {
+              value: "cash",
+              text: "Cash"
+            },
+            {
+              value: "cheque",
+              text: "Cheque"
+            }
+          ]
+        }) }}
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  id: "cost",
+  name: "cost",
+  label: {
+    text: "Payment amount",
+    classes: "govuk-label--s",
+    isPageHeading: true
+  },
+  hint: {
+    text: "If multiple payments were made provide the total amount."
+  },
+  prefix: {
+    text: "£"
+  },
+  classes: "govuk-input--width-5",
+  spellcheck: false
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

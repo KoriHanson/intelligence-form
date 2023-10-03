@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="/new-question" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+        {{ govukRadios({
+          name: "new-question",
+          fieldset: {
+            legend: {
+              text: "Is your report in relation to a new (including aftermarket) vehicle, vehicle part, vehicle safety accessory, or vehicle modification service?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+
+      {{ govukDetails({
+         summaryText: "Examples of what might need permission",
+         text: "The vehicle, vehicle part or vehicle safety accessory you are reporting should be second hand or used part sale. This includes replacement parts and accessories that are not made by the original manufacturer."
+        })
+      }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

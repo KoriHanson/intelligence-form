@@ -1,0 +1,118 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What are the details of the involved vehicle?
+      </h1>
+
+      <form class="form" action="any-payments" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Vehicle registration (if known)"
+          },
+          hint: {
+            text: "For example, CU57ABC or ABC1234"
+          },
+          classes: "govuk-input--width-10",
+          id: "vehicle-registration",
+          name: "vehicleRegistration"
+        }) }}
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "vehicle-make",
+          name: "vehicleMake",
+          label: {
+           text: "Vehicle make (if known)"
+          },
+          items: [
+           {
+             value: "selectMake",
+             text: "Select a make",
+             selected: true
+           },
+           {
+           value: "astonMartin",
+           text: "Aston Martin"
+           },
+           {
+            value: "audi",
+           text: "Audi"
+           },
+           {
+           value: "bentley",
+           text: "Bentley"
+          },
+          {
+            value: "citroen",
+            text: "Citroen"
+           }
+          ]
+        }) }}
+        {{ govukSelect({
+          id: "vehicle-model",
+          name: "vehicleModel",
+          label: {
+           text: "Vehicle model (if known)"
+          },
+          items: [
+           {
+             value: "selectModel",
+             text: "Select a model",
+             selected: true
+           },
+           {
+           value: "100",
+           text: "100"
+           },
+           {
+            value: "200",
+           text: "200"
+           },
+           {
+           value: "60",
+           text: "60"
+          },
+          {
+            value: "70",
+            text: "70"
+           }
+          ]
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Vehicle colour (if known)"
+          },
+          classes: "govuk-input--width-20",
+          id: "vehicle-colour",
+          name: "vehicleColour"
+        }) }}
+              
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

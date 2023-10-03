@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What was the date and/or time of the incident? 
+      </h1>
+
+      <form class="form" action="/would-you-like-to-provide-contact-details" method="post">
+
+        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+        {{ govukDateInput({
+          id: "incident-date",
+          namePrefix: "incident-date",
+          value: data['incident-date'],
+          fieldset: {
+          },
+          hint: {
+            text: "For example, 27 3 2023"
+          }
+        }) }}
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "Time"
+          },
+          hint: {
+            text: "For example, 9am or 2:30pm - enter 12pm from midday"
+          },
+          classes: "govuk-input--width-4",
+          id: "width-4",
+          name: "width4"
+        }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

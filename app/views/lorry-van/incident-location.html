@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What was the location of the incident?
+      </h1>
+
+      <form class="form" action="date-time-involved" method="post">
+
+        <p class="govuk-caption-m">Type in address manually</p>
+        
+        {{ govukInput({
+          label: {
+            text: "Building and Street"
+          },
+          id: "incident-building",
+          name: "incident-building",
+          value: data['incident-building']
+        }) }}
+        {{ govukInput({
+          label: {
+            text: ""
+          },
+          id: "incident-street",
+          name: "incident-street",
+          value: data['incident-street']
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          classes: "govuk-input--width-20",
+          id: "incident-town-city",
+          name: "incidentTownCity",
+          value: data['incidentTownCity']
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          classes: "govuk-input--width-10",
+          id: "incident-postcode",
+          name: "incident-postcode",
+          value: data['incident-postcode']
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

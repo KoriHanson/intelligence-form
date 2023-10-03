@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Where are they selling from online?
+      </h1>
+      <p class="govuk-body">You can include links to online listings, such as websites, social media marketplaces, or platform selling sites.</p>
+
+      <form class="form" action="vehicle-part-or-service" method="post">
+      
+        {{ govukInput({
+          label: {
+            text: "Link to online listing"
+          },
+          classes: "govuk-input--width-20",
+          id: "link",
+          name: "link"
+        }) }}
+        {{ govukInput({
+          label: {
+            text: ""
+          },
+          classes: "govuk-input--width-20",
+          id: "link",
+          name: "link"
+        }) }}
+        <p>
+          <a href="#">
+          Add another online listing
+          </a> 
+        </p>
+        </br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

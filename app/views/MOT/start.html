@@ -1,0 +1,166 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ "Report an MOT test, tester or garage" }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Guidance</span>
+      <h1 class="govuk-heading-xl">
+        Report an MOT test, tester or garage
+      </h1>
+
+      <p class="govuk-body-l">Find out if you can report an MOT tester or garage for fraud, how to report them (including without giving your name), and what will happen next.</p>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      
+      <p>You can report an MOT test, tester or centre to the Driver and Vehicle Standards Agency (DVSA) if you think they’re breaking the law. This includes if they are:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>giving an MOT certificate to a vehicle they know should have failed</li>
+        <li>giving an MOT certificate to a vehicle they have not tested</li>
+        <li>taking bribes for MOT certificates</li>
+      </ul>
+
+      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+      {{ govukInsetText({
+        text: "There is a different process to appeal an MOT result if you think the tester got it wrong."
+      }) }}
+
+      <h2 class="govuk-heading-m">Report an MOT test, tester or garage</h2>
+      <p>Contact DVSA to report the MOT test, tester or garage. You can do this anonymously (not giving your name) or give your details.</p>
+      <p>You need to give as much information as possible about:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>who’s involved</li>
+        <li>what the MOT tester or garage has been doing</li>
+        <li>where it happened</li>
+        <li>when it happened</li>
+        <li>the vehicles involved, including the registration numbers (number plates) if you know them</li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Reporting something anonymously</h3>
+      <p>If you report something anonymously:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you’ll never be asked for your name or to provide contact details</li>
+        <li>your call will not be traced</li>
+        <li>you will not have to make a statement or be called as a witness</li>
+        <li>you will not have to appear in court</li>
+      </ul>
+      <p>Depending on what you’re reporting, it might be possible for the MOT tester or garage to work out that you reported it - even if you report it anonymously.</p>
+     
+      <h3 class="govuk-heading-s">If you do give your contact details</h3>
+      <p>You can remain anonymous. However, if you give DVSA your contact details you might:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be contacted for more information</li>
+        <li>be asked to provide a statement</li>
+        <li>have to act as a witness and appear in court</li>
+      </ul>
+      <p>Read the <a href="#" class="govuk-link">privacy notice for reporting an MOT test, tester or garage</a> to find out more about how your details are stored and used.</p>
+
+      <h3 class="govuk-heading-s">Report online</h3>
+      <p>Report an MOT test, tester or garage using the online form.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "garage-involved",
+        isStartButton: true
+      }) }}
+
+      <h3 class="govuk-heading-s">Contact DVSA</h3>
+      <p>Alternatively, contact DVSA to report an MOT test, tester or garage.</p>
+      <p>DVSA Intelligence Unit</br>
+        <a href="#" class="govuk-link">enquiries@dvsa.gov.uk</a><br>
+        Telephone: 0800 030 4103</br>
+        Monday to Friday, 7:30am to 6pm</br>
+        <a href="#" class="govuk-link">Find out about call charges</a></p>
+
+      <p>DVSA Intelligence Unit</br>
+        The Ellipse</br>
+        Padley Road</br>
+        SA1 8AN</p>
+
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>DVSA will review the information and decide what to do next.</p>
+      <p>This could include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>investigating the report further</li>
+        <li>asking you for more information if you did not make the report anonymously</li>
+        <li>working with other government departments and agencies or the police</li>
+      </ul>
+      <p>Depending on how serious the offence is the tester or garage could be:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>banned from carrying out MOTs</li>
+        <li>fined</li>
+        <li>given a prison sentence</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Getting feedback on what happened</h2>
+      <p>If you ask DVSA to give you feedback on what happened with a criminal prosecution, you’ll get it when:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>any investigation and criminal or other official proceedings have ended</li>
+        <li>a decision has been made if the person appeals against their verdict</li>
+      </ul>
+      <p>DVSA cannot give feedback on an ongoing case. Criminal investigations can take time.</p>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

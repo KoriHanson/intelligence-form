@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        What are your contact details?
+      </h1>
+
+      <form class="form" action="address" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+
+        {{ govukInput({
+          label: {
+            text: "First name (optional)"
+          },
+          classes: "govuk-input--width-20",
+          id: "your-first-name",
+          name: "your-first-name",
+          value: data['your-first-name']
+        }) }}   
+        {{ govukInput({
+          label: {
+            text: "Last name (optional)"
+          },
+          classes: "govuk-input--width-20",
+          id: "your-last-name",
+          name: "your-last-name",
+          value: data['your-last-name']
+        }) }}       
+{{ govukInput({
+  label: {
+    text: "Email address"
+  },
+  hint: {
+    text: "We may use this to contact you but we will not provide updates on any progress relating to the report"
+  },
+  classes: "govuk-input--width-20",
+  id: "your-email",
+  name: "your-email",
+  value: data['your-email']
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Telephone number"
+  },
+  classes: "govuk-input--width-20",
+  id: "your-number",
+  name: "your-number",
+  value: data['your-number']
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

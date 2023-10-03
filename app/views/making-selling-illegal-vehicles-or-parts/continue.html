@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Continue with your report?
+      </h1>
+      <p class="govuk-body">As your report is not in relation to new or aftermarket vehicles, vehicle parts or vehicle accessories it may be more appropriate to report to one of the following:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="#" class="govuk-link">Report vehicle recalls and faults</a>if your report is in relation to a serious defect that affects the safety of your vehicle, one of it’s parts, or an accessory and you are not happy with how the manufacturer is dealing with your report.</li>
+        <li><a href="#" class="govuk-link">Report your information to Trading standards</a> if your report is in relation to second hand cars, misleading advertisements or unfair trading.</li>
+        <li><a href="#" class="govuk-link">Report to your local police</a> if your report is in relation to counterfeits or online misleading adverts.</li>
+      </ul>
+
+
+      <form class="form" action="/continue-question" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "continue-question",
+          fieldset: {
+            legend: {
+              text: "Still want to continue with your original report?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes, I’d like to continue with my report of someone making or selling new, illegal vehicles or parts."
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

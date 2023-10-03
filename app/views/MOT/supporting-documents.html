@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="date-time-involved" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{% set yesHtml %}
+{{ govukFileUpload({
+  id: "file-upload-1",
+  name: "fileUpload1",
+  value: data['fileUpload1'],
+  label: {
+    text: "Upload a file"
+  },
+  hint: {
+    text: "Maximum size is 19.5 MB for each file, up to 10 files can be added.
+           Accepted file types pdf, bmp, gif, jpg, jpeg, png, tiff, xls, xlsx, doc, docx"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "file-upload",
+  fieldset: {
+    legend: {
+      text: "Do you want to upload any supporting documents?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "You can upload files such as documents or images if you feel like it will support your complaint."
+  },
+  items: [
+    {
+      value: "yes, I want to upload a file",
+      text: "Yes, I want to upload a file",
+      conditional: {
+        html: yesHtml
+      }
+    },
+    {
+      value: "no, I do not want to upload a file",
+      text: "No, I do not want to upload a file",
+      conditional: {
+
+      }
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

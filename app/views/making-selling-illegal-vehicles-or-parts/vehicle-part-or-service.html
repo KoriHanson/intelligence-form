@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Which vehicle, part or service are you passing information about?
+      </h1>
+      <p class="govuk-caption-m">You can provide only one vehicle, vehicle part, safety accessory, or vehicle modification service per report. If you have multiple items to report, please submit a separate report for each item.</p>
+
+      <form class="form" action="why-contacting-us" method="post">
+      
+        {{ govukInput({
+          label: {
+            text: "Type of vehicle, part or service"
+          },
+          classes: "govuk-input--width-20",
+          id: "type",
+          name: "type"
+        }) }}
+
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+        <!-- text for within details component-->
+        {% set detailsHTML %}
+           <p class="govuk-body">
+            New vehicles, trailers or non-road mobile machinery that have not been approved to the right <a href="#" class="govuk-link">safety and environmental standards.</a> Some examples include:
+           </p>
+           <ul class="govuk-list govuk-list--bullet">
+            <li>e bikes</li>
+            <li>cars</li>
+            <li>agricultural vehicles</li>
+          </ul>
+
+          <p class="govuk-body">
+            New accessories that do not meet safety standards. Some examples include:
+           </p>
+           <ul class="govuk-list govuk-list--bullet">
+            <li><a href="#" class="govuk-link">motorcycle helmets</a></li>
+            <li>child car seats</li>
+          </ul>
+
+          <p class="govuk-body">
+            New parts that do not meet safety standards (known as type approval) - this includes parts sold in the aftermarket that may not be original to the vehicle. Some examples include:
+           </p>
+           <ul class="govuk-list govuk-list--bullet">
+            <li>break pads</li>
+            <li>tyres</li>
+            <li>emissions control systems</li>
+          </ul>
+
+          <p class="govuk-body">
+            Vehicle modification services for example, offering to remove or change emission control systems, such as diesel particulate filters and catalytic converters.
+           </p>
+
+       {% endset %}
+
+      {{ govukDetails({
+         summaryText: "What type of vehicle, part or service can I report?",
+         html: detailsHTML
+        })
+      }}
+
+
+        {{ govukInput({
+          label: {
+            text: "Unique identifier (if known)"
+          },
+          hint: {
+            text: "For example, the vehicle registration of or a unique identify number"
+          },
+          classes: "govuk-input--width-20",
+          id: "link",
+          name: "link"
+        }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

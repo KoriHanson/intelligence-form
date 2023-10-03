@@ -1,0 +1,147 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Guidance</span>
+      <h1 class="govuk-heading-xl">
+        Report to DVSA
+      </h1>
+      
+      <p>You can report the following to the DVSA:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>an MOT test, tester or centre</li>
+        <li>an illegal driving instructor</li>
+        <li>fraudulant activity within a practical driving or theory test</li>
+        <li>someone making or selling new, unsafe or illegal vehicles or parts</li>
+        <li>a lorry, bus or  coach driver or company</li>
+        <li>a van or Light Goods Vehicle driver or business</li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Reporting something anonymously</h3>
+      <p>If you report something anonymously:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you’ll never be asked for your name or to provide contact details</li>
+        <li>your call will not be traced</li>
+        <li>you will not have to make a statement or be called as a witness</li>
+        <li>you will not have to appear in court</li>
+      </ul>
+     
+     
+      <h3 class="govuk-heading-s">If you do give your contact details</h3>
+      <p>You can remain anonymous. However, if you give DVSA your contact details you might:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be contacted for more information</li>
+        <li>be asked to provide a statement</li>
+        <li>have to act as a witness and appear in court</li>
+      </ul>
+
+
+      <h3 class="govuk-heading-s">Report online</h3>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "../report-category",
+        isStartButton: true
+      }) }}
+
+      <h3 class="govuk-heading-s">Contact DVSA</h3>
+      <p>DVSA Intelligence Unit</br>
+        <a href="#" class="govuk-link">enquiries@dvsa.gov.uk</a><br>
+        Telephone: 0800 030 4103</br>
+        Monday to Friday, 7:30am to 6pm</br>
+        <a href="#" class="govuk-link">Find out about call charges</a></p>
+
+      <p>DVSA Intelligence Unit</br>
+        The Ellipse</br>
+        Padley Road</br>
+        SA1 8AN</p>
+
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>DVSA will review the information and decide what to do next.</p>
+      <p>This could include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>investigating the report further</li>
+        <li>asking you for more information if you did not make the report anonymously</li>
+        <li>working with other government departments and agencies or the police</li>
+      </ul>
+      <p>Depending on how serious the offence is the tester or garage could be:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>banned from carrying out MOTs</li>
+        <li>fined</li>
+        <li>given a prison sentence</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Getting feedback on what happened</h2>
+      <p>If you ask DVSA to give you feedback on what happened with a criminal prosecution, you’ll get it when:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>any investigation and criminal or other official proceedings have ended</li>
+        <li>a decision has been made if the person appeals against their verdict</li>
+      </ul>
+      <p>DVSA cannot give feedback on an ongoing case. Criminal investigations can take time.</p>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}
