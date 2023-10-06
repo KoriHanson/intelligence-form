@@ -96,6 +96,21 @@
     }
   ]
 }) }}
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "personDescription",
+  id: "person-description",
+  label: {
+    text: "Person description",
+    classes: "govuk-label--s",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Any details about the persons appearance that may help identify them"
+  }
+}) }}
         
         <h2 class="govuk-heading-m">Persons address (if known)</h2>
         <p class="govuk-caption-m">Type in address manually</p>

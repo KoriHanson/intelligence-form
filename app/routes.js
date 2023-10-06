@@ -300,7 +300,7 @@ router.post('/vehicle-involved-driving-test', function (req, res) {
     res.redirect('/driving-test/vehicle-details')
   } else if (DrivingTestVehicleInvolved == "No"){
     // Send user to next page
-    res.redirect('/driving-test/why-contacting-us')
+    res.redirect('/driving-test/where-did-you-find-out')
   }
 }
 )

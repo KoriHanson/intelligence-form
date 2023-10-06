@@ -1,0 +1,146 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="why-contacting-us" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {% set onlineHtml %}
+        {{ govukInput({
+           id: "link",
+           name: "link",
+           type: "link",
+           autocomplete: "link",
+           spellcheck: false,
+           classes: "govuk-input--width-20",
+            label: {
+               text: "Link"
+             },
+             hint: {
+              text: "For example, a link to a social media post"
+            }
+        }) }}
+        {% endset -%}
+
+        {% set placeHtml %}
+        <p class="govuk-caption-m">Type in address manually</p>
+        
+        {{ govukInput({
+          label: {
+            text: "Building and Street"
+          },
+          id: "building",
+          name: "building"
+        }) }}
+        {{ govukInput({
+          label: {
+            text: ""
+          },
+          id: "street",
+          name: "street"
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          classes: "govuk-input--width-20",
+          id: "town-city",
+          name: "townCity"
+        }) }}
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          classes: "govuk-input--width-10",
+          id: "postcode",
+          name: "postcode"
+        }) }}
+        {% endset -%}
+
+        {% set textHtml %}
+        {{ govukInput({
+          id: "contact-by-text",
+          name: "contactByText",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+          text: "Mobile phone number"
+         }
+        }) }}
+        {% endset -%}
+
+        {% set otherHtml %}
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {{ govukTextarea({
+          name: "moreDetail",
+         id: "more-detail",
+         label: {
+         }
+        }) }}   
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "where",
+          fieldset: {
+          legend: {
+          text: "Where did you find out about this activity?",
+          isPageHeading: true,
+           classes: "govuk-fieldset__legend--l"
+         }
+         },
+          hint: {
+             text: "Select one option."
+         },
+  items: [
+    {
+      value: "online",
+      text: "Online",
+      conditional: {
+        html: onlineHtml
+      }
+    },
+    {
+      value: "place",
+      text: "Place",
+      conditional: {
+        html: placeHtml
+      }
+    },
+    {
+      value: "other",
+      text: "Other",
+      conditional: {
+        html: otherHtml
+      }
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
