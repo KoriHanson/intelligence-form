@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-      <form class="form" action="supporting-documents" method="post">
+      <form class="form" action="would-you-like-to-provide-contact-details" method="post">
 
 {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
@@ -33,6 +33,36 @@
   hint: {
     text: "Please enter the details of your report and what you'd like to happen"
   }
+}) }}
+
+{{ govukRadios({
+  name: "file-upload",
+  fieldset: {
+    legend: {
+      text: "Do you want to upload any supporting documents?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "You can upload files such as documents or images if you feel like it will support your complaint."
+  },
+  items: [
+    {
+      value: "yes, I want to upload a file",
+      text: "Yes, I want to upload a file",
+      conditional: {
+        html: yesHtml
+      }
+    },
+    {
+      value: "no, I do not want to upload a file",
+      text: "No, I do not want to upload a file",
+      conditional: {
+
+      }
+    }
+  ]
 }) }}
 
         {{ govukButton({

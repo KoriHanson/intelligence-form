@@ -25,16 +25,16 @@ router.post('/report-category-answer', function (req, res) {
       res.redirect('/driving-instructor/driving-instructor-details')
     } else if (whatDoYouWantToReport == "Fraudulent activity within a theory or practical driving test"){
     // Send user to next page
-    res.redirect('/driving-test/business-involved')
-    } else if (whatDoYouWantToReport == "A lorry, bus or coach driver or business"){
+    res.redirect('/driving-test/person-involved')
+    } else if (whatDoYouWantToReport == "A lorry or van driver or business"){
       // Send user to next page
       res.redirect('/lorry-van/business-involved')
-    } else if (whatDoYouWantToReport == "A van or Light Goods Vehicle driver or business"){
+    } else if (whatDoYouWantToReport == "A coach or bus driver or business"){
     // Send user to next page
     res.redirect('/lorry-van/business-involved')
     } else if (whatDoYouWantToReport == "Someone making or selling illegal vehicles or parts"){
       // Send user to next page
-      res.redirect('/making-selling-illegal-vehicles-or-parts/business-involved')
+      res.redirect('/making-selling-illegal-vehicles-or-parts/new')
     }
   }
 )
@@ -75,6 +75,20 @@ router.post('/MOT-person-involved', function (req, res) {
 }
 )
 
+// Run this code when a form is submitted to 'MOT-second-person-involved'
+router.post('/MOT-second-person-involved', function (req, res) {
+
+  // Make a variable and give it the value from 'MOT-person-involved'
+  var MOTSecondPersonInvolved = req.session.data['MOT-second-person-involved']
+
+  // Check whether the variable matches a condition
+  if (MOTSecondPersonInvolved == "No"){
+    // Send user to next page
+    res.redirect('MOT/test-involved')
+  } 
+}
+)
+
 // Run this code when a form is submitted to 'MOT-test-involved'
 router.post('/MOT-test-involved', function (req, res) {
 
@@ -87,7 +101,7 @@ router.post('/MOT-test-involved', function (req, res) {
     res.redirect('MOT/test-details')
   } else if (MOTTestInvolved == "No"){
     // Send user to next page
-    res.redirect('MOT/why-contacting-us')
+    res.redirect('MOT/date-time-involved')
   }
 }
 )
@@ -104,7 +118,7 @@ router.post('/MOT-date-time-involved', function (req, res) {
     res.redirect('MOT/date-time-details')
   } else if (MOTDateTimeInvolved == "No"){
     // Send user to next page
-    res.redirect('MOT/would-you-like-to-provide-contact-details')
+    res.redirect('MOT/why-contacting-us')
   }
 }
 )
@@ -143,7 +157,11 @@ router.post('/is-driving-school-involved', function (req, res) {
   } else if (DrivingSchool == "No"){
     // Send user to next page
     res.redirect('/driving-instructor/vehicle-involved')
+  } else if (DrivingSchool == "I don't know"){
+    // Send user to next page
+    res.redirect('/driving-instructor/vehicle-involved')
   }
+  
 }
 )
 
@@ -176,7 +194,10 @@ router.post('/were-payments-made', function (req, res) {
     res.redirect('/driving-instructor/how-were-payments-made')
   } else if (PaymentMade == "No"){
     // Send user to next page
-    res.redirect('/driving-instructor/why-contacting-us')
+    res.redirect('/driving-instructor/location-involved')
+  } else if (PaymentMade == "I don't know"){
+    // Send user to next page
+    res.redirect('/driving-instructor/location-involved')
   }
 }
 )
@@ -210,7 +231,7 @@ router.post('/DI-date-time-involved-question', function (req, res) {
     res.redirect('/driving-instructor/date-time-details')
   } else if (DIDateTimeInvolved == "No"){
     // Send user to next page
-    res.redirect('/driving-instructor/would-you-like-to-provide-contact-details')
+    res.redirect('/driving-instructor/why-contacting-us')
   }
 }
 )
@@ -248,7 +269,7 @@ router.post('/DT-business-involved', function (req, res) {
     res.redirect('/driving-test/business-details')
   } else if (DTBusinessInvolved == "No"){
     // Send user to next page
-    res.redirect('/driving-test/person-involved')
+    res.redirect('/driving-test/vehicle-involved')
   }
 }
 )
@@ -266,7 +287,7 @@ router.post('/DT-person-involved', function (req, res) {
     res.redirect('/driving-test/person-details')
   } else if (DrivingTestPersonInvolved == "No"){
     // Send user to next page
-    res.redirect('/driving-test/vehicle-involved')
+    res.redirect('/driving-test/business-involved')
   }
 }
 )
@@ -283,7 +304,7 @@ router.post('/DT-second-person-involved', function (req, res) {
     res.redirect('/driving-test/second-person-details')
   } else if (SecondPersonInvolved == "No"){
     // Send user to next page
-    res.redirect('/driving-test/vehicle-involved')
+    res.redirect('/driving-test/business-involved')
   }
 }
 )
@@ -299,6 +320,9 @@ router.post('/vehicle-involved-driving-test', function (req, res) {
     // Send user to next page
     res.redirect('/driving-test/vehicle-details')
   } else if (DrivingTestVehicleInvolved == "No"){
+    // Send user to next page
+    res.redirect('/driving-test/where-did-you-find-out')
+  } else if (DrivingTestVehicleInvolved == "I don't know"){
     // Send user to next page
     res.redirect('/driving-test/where-did-you-find-out')
   }
@@ -334,7 +358,7 @@ router.post('/DT-date-time-involved-question', function (req, res) {
     res.redirect('/driving-test/date-time-details')
   } else if (DTDateTimeInvolved == "No"){
     // Send user to next page
-    res.redirect('/driving-test/would-you-like-to-provide-contact-details')
+    res.redirect('/driving-test/why-contacting-us')
   }
 }
 )
@@ -377,6 +401,23 @@ router.post('/is-driver-involved', function (req, res) {
 }
 )
 
+// Run this code when a form is submitted to '/is-second-person-involved'
+router.post('/LV-second-person-involved', function (req, res) {
+
+  // Make a variable and give it the value from 'is-second-person-involved'
+  var SecondPersonInvolved = req.session.data['LV-second-person-involved']
+
+  // Check whether the variable matches a condition
+  if (SecondPersonInvolved == "Yes"){
+    // Send user to next page
+    res.redirect('/lorry-van/second-person-details')
+  } else if (SecondPersonInvolved == "No"){
+    // Send user to next page
+    res.redirect('/lorry-van/vehicle-involved')
+  }
+}
+)
+
 // Run this code when a form is submitted to '/is-lorry-van-business-involved'
 router.post('/is-lorry-van-business-involved', function (req, res) {
 
@@ -406,7 +447,7 @@ router.post('/vehicle-involved-lorry-van', function (req, res) {
     res.redirect('/lorry-van/vehicle-details')
   } else if (LorryVanVehicleInvolved == "No"){
     // Send user to next page
-    res.redirect('/lorry-van/why-contacting-us')
+    res.redirect('/lorry-van/location-involved')
   }
 }
 )
@@ -440,7 +481,7 @@ router.post('/LV-date-time-involved-question', function (req, res) {
     res.redirect('/lorry-van/date-time-details')
   } else if (LVDateTimeInvolved == "No"){
     // Send user to next page
-    res.redirect('/lorry-van/would-you-like-to-provide-contact-details')
+    res.redirect('/lorry-van/why-contacting-us')
   }
 }
 )
@@ -497,7 +538,7 @@ router.post('/is-person-involved', function (req, res) {
     res.redirect('/making-selling-illegal-vehicles-or-parts/person-details')
   } else if (PersonInvolved == "No"){
     // Send user to next page
-    res.redirect('/making-selling-illegal-vehicles-or-parts/are-they-selling-from-an-address')
+    res.redirect('/making-selling-illegal-vehicles-or-parts/are-they-selling-online')
   }
 }
 )
@@ -514,10 +555,10 @@ router.post('/selling-from-address', function (req, res) {
     res.redirect('/making-selling-illegal-vehicles-or-parts/what-address')
   } else if (SellingFromAddress == "No"){
     // Send user to next page
-    res.redirect('/making-selling-illegal-vehicles-or-parts/are-they-selling-online')
+    res.redirect('/making-selling-illegal-vehicles-or-parts/vehicle-part-or-service')
   } else if (SellingFromAddress == "I don't know"){
     // Send user to next page
-    res.redirect('/making-selling-illegal-vehicles-or-parts/are-they-selling-online')
+    res.redirect('/making-selling-illegal-vehicles-or-parts/vehicle-part-or-service')
   }
 }
 )
@@ -534,10 +575,10 @@ router.post('/selling-online', function (req, res) {
     res.redirect('/making-selling-illegal-vehicles-or-parts/where-online')
   } else if (SellingOnline == "No"){
     // Send user to next page
-    res.redirect('/making-selling-illegal-vehicles-or-parts/vehicle-part-or-service')
+    res.redirect('/making-selling-illegal-vehicles-or-parts/are-they-selling-from-an-address')
   } else if (SellingOnline == "I don't know"){
     // Send user to next page
-    res.redirect('/making-selling-illegal-vehicles-or-parts/vehicle-part-or-service')
+    res.redirect('/making-selling-illegal-vehicles-or-parts/are-they-selling-from-an-address')
   }
 }
 )

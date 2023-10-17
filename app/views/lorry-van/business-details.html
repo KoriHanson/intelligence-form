@@ -17,8 +17,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What are the details of the involved business?
+        What are the details of the business?
       </h1>
+
+      <p class="govuk-caption-m">Enter any details you know about the business you are reporting.</p>
 
       <form class="form" action="driver-involved" method="post">
 
@@ -74,12 +76,12 @@
       }}
 
         
-        <h2 class="govuk-heading-m">Business address (if known)</h2>
+        <h2 class="govuk-heading-m">Business address</h2>
         <p class="govuk-caption-m">Type in address manually</p>
         
         {{ govukInput({
           label: {
-            text: "Building and Street"
+            text: "Building and Street (if known)"
           },
           id: "building",
           name: "building"
@@ -93,7 +95,7 @@
         }) }}
         {{ govukInput({
           label: {
-            text: "Town or city"
+            text: "Town or city (if known)"
           },
           classes: "govuk-input--width-20",
           id: "town-city",
@@ -101,7 +103,7 @@
         }) }}
         {{ govukInput({
           label: {
-            text: "Postcode"
+            text: "Postcode (if known)"
           },
           classes: "govuk-input--width-10",
           id: "postcode",

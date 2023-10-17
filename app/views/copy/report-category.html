@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/report-category-answer" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "report-category",
+  value: data['report-category'],
+  fieldset: {
+    legend: {
+      text: "What do you want to report?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "An MOT test, tester or garage",
+      text: "An MOT test, tester or garage"
+    },
+    {
+      value: "An illegal driving instructor",
+      text: "An illegal driving instructor"
+    },
+    {
+      value: "Fraudulent activity within a theory or practical driving test",
+      text: "Fraudulent activity within a theory or practical driving test"
+    },
+    {
+      value: "A lorry, bus or coach driver or business",
+      text: "A lorry, bus or coach driver or business"
+    },
+    {
+      value: "A van or Light Goods Vehicle driver or business",
+      text: "A van or Light Goods Vehicle driver or business"
+    },
+    {
+      value: "Someone making or selling illegal vehicles or parts",
+      text: "Someone making or selling illegal vehicles or parts",
+      hint: {
+        text: "Must be in relation to a new vehicle, vehicle part, vehicle safety accessory (including aftermarket), or vehicle modification service"
+      }
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

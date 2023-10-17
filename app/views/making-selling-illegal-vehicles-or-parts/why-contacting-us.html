@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-      <form class="form" action="supporting-documents" method="post">
+      <form class="form" action="would-you-like-to-provide-contact-details" method="post">
 
 {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
@@ -33,6 +33,54 @@
   hint: {
     text: "Please enter the details of your report and what you'd like to happen"
   }
+}) }}
+
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{% set yesHtml %}
+{{ govukFileUpload({
+  id: "file-upload-1",
+  name: "fileUpload1",
+  value: data['fileUpload1'],
+  label: {
+    text: "Upload a file"
+  },
+  hint: {
+    text: "Maximum size is 19.5 MB for each file, up to 10 files can be added.
+           Accepted file types pdf, bmp, gif, jpg, jpeg, png, tiff, xls, xlsx, doc, docx"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "file-upload",
+  fieldset: {
+    legend: {
+      text: "Do you want to upload any supporting documents?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "You can upload files such as documents or images if you feel like it will support your complaint."
+  },
+  items: [
+    {
+      value: "yes, I want to upload a file",
+      text: "Yes, I want to upload a file",
+      conditional: {
+        html: yesHtml
+      }
+    },
+    {
+      value: "no, I do not want to upload a file",
+      text: "No, I do not want to upload a file",
+      conditional: {
+
+      }
+    }
+  ]
 }) }}
 
         {{ govukButton({

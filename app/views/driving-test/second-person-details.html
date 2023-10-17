@@ -17,10 +17,12 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What are the details of the second person involved?
+        What are the details of the second person?
       </h1>
 
-      <form class="form" action="vehicle-involved" method="post">
+      <p class="govuk-caption-m">Enter any details you know about the person you are reporting.</p>
+
+      <form class="form" action="business-involved" method="post">
 
         {{ govukInput({
           label: {
@@ -48,7 +50,7 @@
         }) }}
         {{ govukInput({
           label: {
-            text: "Telephone number (if known)"
+            text: "Phone number (if known)"
           },
           classes: "govuk-input--width-20",
           id: "telephone-number",
@@ -96,13 +98,28 @@
     }
   ]
 }) }}
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "personDescription",
+  id: "person-description",
+  label: {
+    text: "Person's physical description",
+    classes: "govuk-label--s",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Any details about the persons appearance that may help identify them"
+  }
+}) }}
         
-        <h2 class="govuk-heading-m">Persons address (if known)</h2>
+        <h2 class="govuk-heading-m">Person's address</h2>
         <p class="govuk-caption-m">Type in address manually</p>
         
         {{ govukInput({
           label: {
-            text: "Building and Street"
+            text: "Building and Street (if known)"
           },
           id: "building",
           name: "building"
@@ -116,7 +133,7 @@
         }) }}
         {{ govukInput({
           label: {
-            text: "Town or city"
+            text: "Town or city (if known)"
           },
           classes: "govuk-input--width-20",
           id: "town-city",
@@ -124,7 +141,7 @@
         }) }}
         {{ govukInput({
           label: {
-            text: "Postcode"
+            text: "Postcode (if known)"
           },
           classes: "govuk-input--width-10",
           id: "postcode",

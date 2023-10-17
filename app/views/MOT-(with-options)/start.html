@@ -29,6 +29,15 @@
 
 {% endblock %}
 
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+        <!-- text for highlighted text-->
+        {% set detailsHTML %}
+           <p class="govuk-body">
+            There is a different process to <a href="#" class="govuk-link">appeal an MOT result</a> if you think the tester got it wrong.
+           </p>
+
+       {% endset %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -51,7 +60,7 @@
       {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
       {{ govukInsetText({
-        text: "There is a different process to appeal an MOT result if you think the tester got it wrong."
+        html: detailsHTML
       }) }}
 
       <h2 class="govuk-heading-m">Report an MOT test, tester or garage</h2>
@@ -65,7 +74,42 @@
         <li>the vehicles involved, including the registration numbers (number plates) if you know them</li>
       </ul>
 
-      <h3 class="govuk-heading-s">Reporting something anonymously</h3>
+      <h3 class="govuk-heading-s">
+        Data protection
+      </h3>
+
+        <p class="govuk-body">
+          The personal information you provide on this form will be used for the purposes of DVSA’s statutory functions. 
+          It will not be disclosed to other organisations unless required or permitted by law.
+        </p>
+
+        <p class="govuk-body">
+          For further information, visit our information charter available form DVSA’s website: <a href="#" class="govuk-link">www.gov.uk/dvsa</a>
+        </p>
+
+      <h3 class="govuk-heading-s">Report online</h3>
+      <p>Report an MOT test, tester or garage using the online form.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "../report-category",
+        isStartButton: true
+      }) }}
+
+
+      <h3 class="govuk-heading-s">Alternatively, contact DVSA to report an MOT test, tester or garage</h3>
+      <p>DVSA Intelligence Unit</br>
+        <a href="#" class="govuk-link">enquiries@dvsa.gov.uk</a><br>
+        Telephone: 0800 030 4103</br>
+        Monday to Friday, 7:30am to 6pm</br>
+        <a href="#" class="govuk-link">Find out about call charges</a></p>
+
+      <p>DVSA Intelligence Unit</br>
+        The Ellipse</br>
+        Padley Road</br>
+        SA1 8AN</p>
+
+        <h3 class="govuk-heading-s">Reporting something anonymously</h3>
       <p>If you report something anonymously:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>you’ll never be asked for your name or to provide contact details</li>
@@ -84,27 +128,6 @@
       </ul>
       <p>Read the <a href="#" class="govuk-link">privacy notice for reporting an MOT test, tester or garage</a> to find out more about how your details are stored and used.</p>
 
-      <h3 class="govuk-heading-s">Report online</h3>
-      <p>Report an MOT test, tester or garage using the online form.</p>
-
-      {{ govukButton({
-        text: "Start now",
-        href: "../report-category",
-        isStartButton: true
-      }) }}
-
-      <h3 class="govuk-heading-s">Contact DVSA</h3>
-      <p>Alternatively, contact DVSA to report an MOT test, tester or garage.</p>
-      <p>DVSA Intelligence Unit</br>
-        <a href="#" class="govuk-link">enquiries@dvsa.gov.uk</a><br>
-        Telephone: 0800 030 4103</br>
-        Monday to Friday, 7:30am to 6pm</br>
-        <a href="#" class="govuk-link">Find out about call charges</a></p>
-
-      <p>DVSA Intelligence Unit</br>
-        The Ellipse</br>
-        Padley Road</br>
-        SA1 8AN</p>
 
 
       <h2 class="govuk-heading-m">What happens next</h2>
@@ -137,18 +160,38 @@
 
       <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
+          Related content
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
             <li>
               <a href="#">
-                Related link
+                Appeal an MOT test result
               </a>
             </li>
             <li>
               <a href="#">
-                Related link
+                Report an illegal driving instructor
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Report fraudulent activity within a theory or driving test
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Report a coach or bus driver or business
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Report a lorry or van driver or business
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Report someone making or selling new illegal vehicles or parts
               </a>
             </li>
             <li>

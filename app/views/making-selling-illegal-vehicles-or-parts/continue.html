@@ -26,37 +26,10 @@
         <li><a href="#" class="govuk-link">Report to your local police</a> if your report is in relation to counterfeits or online misleading adverts.</li>
       </ul>
 
-
-      <form class="form" action="/continue-question" method="post">
-
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-        {{ govukRadios({
-          name: "continue-question",
-          fieldset: {
-            legend: {
-              text: "Still want to continue with your original report?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "Yes",
-              text: "Yes, I’d like to continue with my report of someone making or selling new, illegal vehicles or parts."
-            },
-            {
-              value: "No",
-              text: "No"
-            }
-          ]
-        }) }}
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-      </form>
+      <h2 class="govuk-heading-m">
+        Continue with your report
+      </h2>
+      <p class="govuk-body"><a href="business-involved" class="govuk-link">Continue with your report</a> of someone making or selling new, illegal vehicles or parts.</p>
 
     </div>
   </div>

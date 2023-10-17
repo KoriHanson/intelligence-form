@@ -17,8 +17,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        What are the details of the involved MOT garage?
+        What are the details of the MOT garage?
       </h1>
+
+      <p class="govuk-caption-m">Enter any details you know about the MOT garage you are reporting.</p>
 
       <form class="form" action="person-involved" method="post">
 
@@ -50,12 +52,12 @@
           value: data['garageTelephoneNumber']
         }) }}
         
-        <h2 class="govuk-heading-m">MOT garage address (if known)</h2>
+        <h2 class="govuk-heading-m">MOT garage address</h2>
         <p class="govuk-caption-m">Type in address manually</p>
         
         {{ govukInput({
           label: {
-            text: "Building and Street"
+            text: "Building and Street (if known)"
           },
           id: "garage-building",
           name: "garage-building",
@@ -71,7 +73,7 @@
         }) }}
         {{ govukInput({
           label: {
-            text: "Town or city"
+            text: "Town or city (if known)"
           },
           classes: "govuk-input--width-20",
           id: "garage-town-city",
@@ -80,7 +82,7 @@
         }) }}
         {{ govukInput({
           label: {
-            text: "Postcode"
+            text: "Postcode (if known)"
           },
           classes: "govuk-input--width-10",
           id: "garagepostcode",

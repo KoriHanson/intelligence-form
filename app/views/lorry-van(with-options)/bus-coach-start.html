@@ -1,0 +1,222 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+        <!-- text for highlighted text-->
+        {% set detailsHTML %}
+           <p class="govuk-body">
+            There’s a different process to <a href="#" class="govuk-link">report a smoky lorry or bus to DVSA.</a> 
+           </p>
+{% endset %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Guidance</span>
+      <h1 class="govuk-heading-xl">
+        Report a lorry or van driver or business
+      </h1>
+
+      <p class="govuk-body-l">How to report a driver or their business to the Driver and Vehicle Standards Agency (DVSA) if you think they're breaking safety rules.</p>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-l">Report a coach or bus driver or business</h2>
+      <p>You can report a coach or bus driver or the business running the vehicles (a ‘vehicle operator’) to DVSA if you think they’re breaking safety rules or conditions of their driving or operator licence.</p>
+      
+      <p>This includes things like:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>breaking drivers’ hours rules</li>
+        <li>overloading vehicles</li>
+        <li>using vehicles that are not safe to drive (unroadworthy)</li>
+        <li>using emission cheat devices</li>
+        <li>carrying dangerous or hazardous goods without permission</li>
+        <li>scheduled bus services in England (outside London) and Wales departing late, early, or not turning up at all</li>
+      </ul>
+
+      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+      {{ govukInsetText({
+        html: detailsHTML
+      }) }}
+
+      <h3 class="govuk-heading-s">Issues you have to report to other organisations</h3>
+      <p>Theres a different process to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="#" class="govuk-link">report other crime</a>, such as suspected drink-driving, speeding and driving while disqualified</li>
+        <li><a href="#" class="govuk-link">complain about scheduled bus services in London </a>arriving late, early, or not turning up at all</li>
+        <li><a href="#" class="govuk-link">complain about scheduled bus services in Scotland</a>arriving late, early or not turning up at all</li>
+        <li><a href="#" class="govuk-link">complain about bus and coach services in Northern Ireland</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Report bus driver rudeness</h3>
+      <p>Complain directly to the bus or coach operator if their driver was rude to you. If you’re not happy with their response:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="#" class="govuk-link">complain to Bus Users UK </a>, if the journey was in England (outside London), Scotland or Wales</li>
+        <li><a href="#" class="govuk-link">complain to London TravelWatch</a> if the journey was in London</li>
+        <li><a href="#" class="govuk-link">complain to the Consumer Council for Northern Ireland</a> if the journey was in Northern Ireland</li>
+      </ul>
+     
+      <h3 class="govuk-heading-s">Report the driver or business</h3>
+      <p>Contact DVSA to report the driver or company. You can do this anonymously or give your details - <a href="#" class="govuk-link">check what this means before you make your report.</a></p>
+      <p>You need to give as much information as possible about:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>who is involved - for example, the driver or company name, or the vehicle registration number (number plate)</li>
+        <li>what the driver or company is doing</li>
+        <li>where they’re doing it</li>
+        <li>when they’re doing it</li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        Data protection
+      </h3>
+  
+        <p class="govuk-body">
+          The personal information you provide on this form will be used for the purposes of DVSA’s statutory functions. 
+          It will not be disclosed to other organisations unless required or permitted by law.
+        </p>
+  
+        <p class="govuk-body">
+          For further information, visit our information charter available form DVSA’s website: <a href="#" class="govuk-link">www.gov.uk/dvsa</a>
+        </p>
+
+      <h3 class="govuk-heading-s">Report online</h3>
+      <p>Report the driver or business using the online form.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "../report-category",
+        isStartButton: true
+      }) }}
+
+      <h3 class="govuk-heading-s">Alternatively, contact DVSA to make your report</h3>
+      <p>DVSA Intelligence Unit</br>
+        <a href="#" class="govuk-link">enquiries@dvsa.gov.uk</a><br>
+        Telephone: 0800 030 4103</br>
+        Monday to Friday, 7:30am to 6pm</br>
+        <a href="#" class="govuk-link">Find out about call charges</a></p>
+
+        <h3 class="govuk-heading-s">Reporting something anonymously</h3>
+      <p>If you report something anonymously:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you’ll never be asked for your name or to provide contact details</li>
+        <li>your call will not be traced</li>
+        <li>you will not have to make a statement or be called as a witness</li>
+        <li>you will not have to appear in court</li>
+      </ul>
+      <p>Depending on what you’re reporting, it might be possible for the MOT tester or garage to work out that you reported it - even if you report it anonymously.</p>
+
+      <h3 class="govuk-heading-s">If you do give your contact details</h3>
+      <p>You can remain anonymous. However, if you give DVSA your contact details you might:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be contacted for more information</li>
+        <li>be asked to provide a statement</li>
+        <li>have to act as a witness and appear in court</li>
+      </ul>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p>DVSA will review the information and decide what to do next.</p>
+        <p>This could include:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>investigating the report further</li>
+          <li>asking you for more information if you did not make the report anonymously</li>
+          <li>working with other government departments and agencies or the police</li>
+        </ul>
+        <p>Depending on how serious the offence is the tester or garage could be:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>banned from carrying out MOTs</li>
+          <li>fined</li>
+          <li>given a prison sentence</li>
+        </ul>
+  
+        <h2 class="govuk-heading-m">Getting feedback on what happened</h2>
+        <p>If you ask DVSA to give you feedback on what happened with a criminal prosecution, you’ll get it when:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>any investigation and criminal or other official proceedings have ended</li>
+          <li>a decision has been made if the person appeals against their verdict</li>
+        </ul>
+        <p>DVSA cannot give feedback on an ongoing case. Criminal investigations can take time.</p>
+  
+  
+      </div>
+  
+      <div class="govuk-grid-column-one-third">
+  
+        <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+          <h2 class="govuk-heading-m" id="subsection-title">
+            Related content
+          </h2>
+          <nav role="navigation" aria-labelledby="subsection-title">
+            <ul class="govuk-list govuk-!-font-size-16">
+              <li>
+                <a href="#">
+                  Report a smoky lorry or bus 
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Report a coach or bus driver or business
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Report an illegal driving instructor
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Report fraudulent activity within a theory or driving test
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Report a lorry or van driver or business
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Report someone making or selling new illegal vehicles or parts
+                </a>
+              </li>
+              <li>
+                <a href="#" class="govuk-!-font-weight-bold">
+                  More <span class="govuk-visually-hidden">in Subsection</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+  
+      </div>
+    </div>
+  
+  {% endblock %}
+  

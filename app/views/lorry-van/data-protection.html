@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Data protection
+      </h1>
+
+        <p class="govuk-body">
+          The personal information you provide on this form will be used for the purposes of DVSA’s statutory functions. 
+          It will not be disclosed to other organisations unless required or permitted by law.
+        </p>
+
+        <p class="govuk-body">
+          For further information, visit our information charter available form DVSA’s website: <a href="#" class="govuk-link">www.gov.uk/dvsa</a>
+        </p>
+        
+        {{ govukButton({
+          text: "Start now",
+          href: "business-involved",
+          isStartButton: true
+        }) }}
+
+
+    </div>
+  </div>
+
+{% endblock %}

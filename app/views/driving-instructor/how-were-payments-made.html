@@ -20,14 +20,14 @@
         How were payments made?
       </h1>
 
-      <form class="form" action="why-contacting-us" method="post">
+      <form class="form" action="location-involved" method="post">
 
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
 
         {% set cardHtml %}
-        <p class="govuk-caption-m">Provide the details of the card the payment(s) were made to.</p>
+        <h2 class="govuk-heading-s">Details of the account the payment was made to</h2>
         {{ govukInput({
           id: "name",
           name: "name",
@@ -36,7 +36,7 @@
           spellcheck: false,
           classes: "govuk-input--width-20",
           label: {
-            text: "Name on account"
+            text: "Name on account (if known)"
           }
         }) }}
         {{ govukInput({
@@ -47,7 +47,7 @@
           spellcheck: false,
           classes: "govuk-input--width-10",
           label: {
-            text: "Sort code"
+            text: "Sort code (if known)"
           },
           hint: {
             text: "Must be 6 digits long"
@@ -61,7 +61,7 @@
           spellcheck: false,
           classes: "govuk-input--width-10",
           label: {
-            text: "Account number"
+            text: "Account number (if known)"
           },
           hint: {
             text: "Must be between 6 and 8 digits long"
@@ -96,6 +96,10 @@
             {
               value: "cheque",
               text: "Cheque"
+            },
+            {
+              value: "i don't know",
+              text: "I don't know"
             }
           ]
         }) }}

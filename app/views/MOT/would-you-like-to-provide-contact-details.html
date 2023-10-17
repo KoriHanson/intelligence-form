@@ -45,6 +45,14 @@
           ]
         }) }}
 
+
+        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+        {{ govukInsetText({
+          text: "Depending on what you’re reporting, it may be possible for the MOT tester or garage to work out that you reported them - even if you report them anonymously"
+        }) }}
+
+
         {{ govukButton({
           text: "Continue"
         }) }}

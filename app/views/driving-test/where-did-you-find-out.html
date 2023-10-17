@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="why-contacting-us" method="post">
+      <form class="form" action="location-involved" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -35,41 +35,6 @@
              hint: {
               text: "For example, a link to a social media post"
             }
-        }) }}
-        {% endset -%}
-
-        {% set placeHtml %}
-        <p class="govuk-caption-m">Type in address manually</p>
-        
-        {{ govukInput({
-          label: {
-            text: "Building and Street"
-          },
-          id: "building",
-          name: "building"
-        }) }}
-        {{ govukInput({
-          label: {
-            text: ""
-          },
-          id: "street",
-          name: "street"
-        }) }}
-        {{ govukInput({
-          label: {
-            text: "Town or city"
-          },
-          classes: "govuk-input--width-20",
-          id: "town-city",
-          name: "townCity"
-        }) }}
-        {{ govukInput({
-          label: {
-            text: "Postcode"
-          },
-          classes: "govuk-input--width-10",
-          id: "postcode",
-          name: "postcode"
         }) }}
         {% endset -%}
 
@@ -118,11 +83,15 @@
       }
     },
     {
-      value: "place",
-      text: "Place",
+      value: "test-centre",
+      text: "Witnessed at a test centre",
       conditional: {
         html: placeHtml
       }
+    },
+    {
+      value: "word-of-mouth",
+      text: "Word of mouth"
     },
     {
       value: "other",

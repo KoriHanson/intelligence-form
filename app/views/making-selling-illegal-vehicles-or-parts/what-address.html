@@ -20,13 +20,13 @@
         What is the address they are selling from?
       </h1>
 
-      <form class="form" action="are-they-selling-online" method="post">
+      <form class="form" action="vehicle-part-or-service" method="post">
 
         <p class="govuk-caption-m">Type in address manually</p>
         
         {{ govukInput({
           label: {
-            text: "Building and Street"
+            text: "Building and Street (if known)"
           },
           id: "building",
           name: "building"
@@ -40,7 +40,7 @@
         }) }}
         {{ govukInput({
           label: {
-            text: "Town or city"
+            text: "Town or city (if known)"
           },
           classes: "govuk-input--width-20",
           id: "town-city",
@@ -48,7 +48,7 @@
         }) }}
         {{ govukInput({
           label: {
-            text: "Postcode"
+            text: "Postcode (if known)"
           },
           classes: "govuk-input--width-10",
           id: "postcode",

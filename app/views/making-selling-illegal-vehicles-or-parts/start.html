@@ -29,6 +29,16 @@
 
 {% endblock %}
 
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+        <!-- text for highlighted text-->
+        {% set detailsHTML %}
+           <p class="govuk-body">
+            There’s a different process to <a href="#" class="govuk-link">report a safety defect with your vehicle, vehicle part or accessory.</a>
+           </p>
+
+       {% endset %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -53,7 +63,7 @@
       </ul>
 
       {{ govukInsetText({
-        text: "There’s a different process to report a safety defect with your vehicle, vehicle part or accessory."
+        html: detailsHTML
       }) }}
 
       <h2 class="govuk-heading-m">Report the business or person</h2>
@@ -89,12 +99,11 @@
 
       {{ govukButton({
         text: "Start now",
-        href: "new",
+        href: "data-protection",
         isStartButton: true
       }) }}
 
-      <h3 class="govuk-heading-s">Contact DVSA</h3>
-      <p>Alternatively, contact DVSA to make your report.</p>
+      <h3 class="govuk-heading-s">Alternatively, contact DVSA to make your report</h3>
       <p>DVSA Intelligence Unit</br>
         <a href="#" class="govuk-link">enquiries@dvsa.gov.uk</a><br>
         Telephone: 0800 030 4103</br>
@@ -124,18 +133,38 @@
 
       <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
+          Related content
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
             <li>
               <a href="#">
-                Related link
+                Safety recalls and faults
               </a>
             </li>
             <li>
               <a href="#">
-                Related link
+                Report an illegal driving instructor
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Report fraudulent activity within a theory or driving test
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Report a coach or bus driver or business
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Report a lorry or van driver or business
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Report someone making or selling new illegal vehicles or parts
               </a>
             </li>
             <li>
